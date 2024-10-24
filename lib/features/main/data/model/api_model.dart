@@ -36,9 +36,9 @@ class ApiChapterModel {
         russian = json["russian"],
         transcription = json["transcription"];
 
-  static List<ApiChapterModel> fromApi(Map<String, dynamic> json) {
+  static List<ApiChapterModel> fromApi(List<dynamic> json) {
     List<ApiChapterModel> list =
-        (json as List).map((i) => ApiChapterModel.fromJson(i)).toList();
+        (json).map((i) => ApiChapterModel.fromJson(i)).toList();
     return list;
   }
 }
@@ -62,9 +62,9 @@ class ApiWordModel {
         transcription = json["transcription"],
         chapterId = json["chapterId"];
 
-  static List<ApiWordModel> fromApi(Map<String, dynamic> json) {
+  static List<ApiWordModel> fromApi(List<dynamic> json) {
     List<ApiWordModel> list =
-        (json["terms"] as List).map((i) => ApiWordModel.fromJson(i)).toList();
+        (json).map((i) => ApiWordModel.fromJson(i)).toList();
     return list;
   }
 }

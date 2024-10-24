@@ -1,5 +1,7 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class BaseConfig {
-  final String domain = "localhost:8082";
+  final String domain = dotenv.env["DOMAIN"] ?? "";
 
   String getChaptersUrl() {
     const String url = "/chapters";
@@ -7,12 +9,12 @@ class BaseConfig {
   }
 
   String getWordsFromChapterUrl(int chapter) {
-    final String url = "/chapters/$chapter/terms";
+    final String url = '/chapters/$chapter/terms';
     return url;
   }
 
   String getSimilarTermsUrl(String term) {
-    const String url = "";
+    const String url = "/terms/find";
     return url;
   }
 }

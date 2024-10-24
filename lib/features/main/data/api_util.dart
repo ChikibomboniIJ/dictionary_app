@@ -8,8 +8,9 @@ class ApiUtil {
   final DictionaryService _dictionaryService;
   ApiUtil(this._dictionaryService);
 
-  Future<Either<int, WordsModel>> getTerms(int chapter) async {
-    final result = await _dictionaryService.getTerms(chapter);
+  Future<Either<int, WordsModel>> getTerms(
+      int chapter, Map<String, String> query) async {
+    final result = await _dictionaryService.getTerms(chapter, query);
     if (result.isRight) {
       final ans = DataMapper.getWordsFromApiModel(result.right);
       return Right(ans);
@@ -28,8 +29,9 @@ class ApiUtil {
     }
   }
 
-  Future<Either<int, WordsModel>> getSimilarTerms(String term) async {
-    final result = await _dictionaryService.getSimilarTerms(term);
+  Future<Either<int, WordsModel>> getSimilarTerms(
+      String term, Map<String, String> query) async {
+    final result = await _dictionaryService.getSimilarTerms(term, query);
     if (result.isRight) {
       final ans = DataMapper.getWordsFromApiModel(result.right);
       return Right(ans);

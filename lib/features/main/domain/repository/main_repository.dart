@@ -3,7 +3,9 @@ import 'package:dictionary_app/features/main/domain/models/words_model.dart';
 import 'package:either_dart/either.dart';
 
 abstract class MainRepository {
-  Future<Either<int, WordsModel>> getTerms({required int chapter});
+  Future<Either<int, WordsModel>> getTerms(
+      {required int chapter, required Map<String, String> query});
   Future<Either<int, List<ChapterModel>>> getChapters();
-  Future<Either<int, WordsModel>> getSimilarTerms({required String term});
+  Future<Either<int, WordsModel>> getSimilarTerms(
+      {required String term, required Map<String, String> query});
 }

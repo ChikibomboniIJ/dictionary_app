@@ -9,8 +9,9 @@ class MainDataRepository extends MainRepository {
   MainDataRepository(this._apiUtil);
 
   @override
-  Future<Either<int, WordsModel>> getTerms({required int chapter}) async {
-    return await _apiUtil.getTerms(chapter);
+  Future<Either<int, WordsModel>> getTerms(
+      {required int chapter, required Map<String, String> query}) async {
+    return await _apiUtil.getTerms(chapter, query);
   }
 
   @override
@@ -20,7 +21,7 @@ class MainDataRepository extends MainRepository {
 
   @override
   Future<Either<int, WordsModel>> getSimilarTerms(
-      {required String term}) async {
-    return await _apiUtil.getSimilarTerms(term);
+      {required String term, required Map<String, String> query}) async {
+    return await _apiUtil.getSimilarTerms(term, query);
   }
 }

@@ -7,7 +7,9 @@ final class MainGetChaptersEvent extends MainEvent {}
 
 final class MainGetTermsFromChapterEvent extends MainEvent {
   final int chapter;
-  MainGetTermsFromChapterEvent({required this.chapter});
+  final int page;
+  final int size = 15;
+  MainGetTermsFromChapterEvent({required this.chapter, required this.page});
 }
 
 final class MainGetSimilarWordsEvent extends MainEvent {
